@@ -22,7 +22,7 @@ public class ReminderController {
     }
 
     @PostMapping
-    public Reminder createReminder(Reminder reminder) {
+    public Reminder createReminder(@RequestBody Reminder reminder) {
         return reminderRepository.save(reminder);
     }
 
