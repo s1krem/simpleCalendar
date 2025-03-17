@@ -33,8 +33,7 @@ public class ReminderController {
         reminder.setTitle(reminderDetails.getTitle());
         reminder.setDescription(reminderDetails.getDescription());
         reminder.setStartTime(reminderDetails.getStartTime());
-        reminder.setRecurrence(reminderDetails.getRecurrence());
-        reminder.setRecurrenceEndTime(reminderDetails.getRecurrenceEndTime());
+        reminder.setEndTime(reminderDetails.getEndTime());
         reminderRepository.save(reminder);
         return ResponseEntity.ok(reminder);
     }

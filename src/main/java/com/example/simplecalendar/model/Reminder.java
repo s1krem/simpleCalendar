@@ -1,5 +1,6 @@
 package com.example.simplecalendar.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Entity;
 
 import jakarta.persistence.*;
@@ -16,22 +17,14 @@ public class Reminder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String title;
     private String description;
+
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private LocalDateTime startTime;
-    private String recurrence;
-    private LocalDateTime recurrenceEndTime;
-    private LocalDateTime createdDate;
-    private LocalDateTime updatedDate;
 
-    @PrePersist
-    public void prePersist() {
-        createdDate = LocalDateTime.now();
-        updatedDate = createdDate;
-    }
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime endTime;
 
-    @PreUpdate
-    public void preUpdate() {
-        updatedDate = LocalDateTime.now();
-    }
 }
